@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Raining · 天气音效工作台</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#101c23;color:#e1edf0}body{max-width:900px;margin:48px auto;padding:0 24px}h1{font-size:30px}p{color:#a9c0cb;line-height:1.7}section{background:#192b35;border:1px solid #304854;border-radius:18px;padding:24px;margin:20px 0}label{display:flex;align-items:center;gap:12px;margin:18px 0}label span{width:120px}input[type=range]{flex:1;accent-color:#95d6d1}input[type=number]{width:90px}button,input,select{font:inherit;border:1px solid #496572;border-radius:8px;padding:9px;background:#203943;color:inherit}button{cursor:pointer}button:hover{background:#31535e}button:disabled{opacity:.4;cursor:default}.actions{display:flex;flex-wrap:wrap;gap:10px}audio{width:100%;margin-top:18px}canvas{width:100%;height:110px;background:#101f28;border-radius:10px}small{color:#a9c0cb}a{color:#a7e4df}#status{min-height:26px;color:#a7e4df}output{width:48px;text-align:right}
+</style>
+<h1>天气音效工作台</h1><p>调一场雨，加入风与远雷。也可以导入自己的声音，截取片段、淡入淡出后导出。</p>
+<section><h2>自创天气</h2>
+<label><span>预设</span><select id="preset"><option value="rain">柔和细雨</option><option value="forest">林间风雨</option><option value="storm">雨与远雷</option><option value="wind">山谷风声</option></select></label>
+<label><span>雨声</span><input id="rain" type="range" min="0" max="100" value="65"><output>65</output></label>
+<label><span>风声</span><input id="wind" type="range" min="0" max="100" value="12"><output>12</output></label>
+<label><span>远雷</span><input id="thunder" type="range" min="0" max="100" value="0"><output>0</output></label>
+<label><span>水滴细节</span><input id="drops" type="range" min="0" max="100" value="30"><output>30</output></label>
+<label><span>生成时长（秒）</span><input id="seconds" type="number" min="5" max="120" value="30"></label>
+<label><span>随机种子</span><input id="seed" type="number" min="1" max="4294967295" value="20261123"></label>
+<button id="generate">生成天气音效</button><p><small>调整后点击生成。种子相同可复现声音；这是程序合成的原型音色。</small></p></section>
+<section><h2>编辑与导出</h2><label><span>导入音频</span><input id="file" type="file" accept="audio/*"></label><small>文件仅在当前浏览器中处理。支持的导入格式取决于浏览器；输出为立体声 PCM WAV。</small>
+<p id="status" role="status" aria-live="polite">等待生成或导入音频</p><canvas id="wave" width="1200" height="160"></canvas>
+<label><span>起点（秒）</span><input id="start" type="number" min="0" step="0.1" value="0"></label>
+<label><span>终点（秒）</span><input id="end" type="number" min="0" step="0.1" value="30"></label>
+<label><span>音量</span><input id="volume" type="range" min="0" max="100" value="70"><output>70</output></label>
+<label><span>淡入淡出（秒）</span><input id="fade" type="number" min="0" max="10" step="0.1" value="1"></label>
+<div class="actions"><button id="preview" disabled>试听编辑结果</button><button id="export" disabled>导出 WAV</button><button id="stop">停止</button></div>
+<audio id="player" controls></audio><p><small>裁剪结果使用淡入淡出，尚未制作无缝循环点。长音频导入会占用较多内存。</small></p></section>
+<script src="audio.js"></script>
+</html>
