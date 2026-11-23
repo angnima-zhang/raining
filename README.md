@@ -6,7 +6,10 @@
 
 雨、风、雷构成三套可升级系统。核心玩法采用关卡制，不同关卡有不同场景，并提供不同白噪音。
 
-项目目前处于想法记录与概念探索阶段。
+项目已建立可玩的 Godot 三关灭火原型；TapTap 小游戏发布链路仍待验证。
+
+- [Godot 原型与运行说明](godot/README.md)
+- Godot 工程入口：`godot/project.godot`，横屏 1280×720，按 F5 试玩。
 
 - [游戏想法记录](docs/game-idea.md)
 - [关卡设计记录](docs/level-proposals.md)
