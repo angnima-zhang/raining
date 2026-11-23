@@ -10,7 +10,7 @@ const TITLES := ["第一场雨", "让雨快一些", "照顾整片树林"]
 const SUBTITLES := ["长按下雨，救下这棵树。", "三棵树，感受更快的降雨。", "十棵树，试试扩大后的降雨范围。"]
 var progress = Progress.new()
 var weather: Node
-var font: SystemFont
+var font: Font
 var trees: Array[Dictionary] = []
 var drops: Array[Dictionary] = []
 var splashes: Array[Dictionary] = []
@@ -30,8 +30,7 @@ var total_effective := 0
 var focus_ring := 0.0
 
 func _ready() -> void:
-	font = SystemFont.new()
-	font.font_names = PackedStringArray(["PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "sans-serif"])
+	font = preload("res://fonts/RainingSans.ttf")
 	progress.load_game()
 	random.seed = 1197
 	weather = WeatherAudio.new()
