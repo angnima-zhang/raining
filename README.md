@@ -10,6 +10,7 @@
 
 - [游戏想法记录](docs/game-idea.md)
 - [关卡设计记录](docs/level-proposals.md)
+- [第一关：灭火教学](docs/level-01-tutorial.md)
 - [音效工具与制作流程](docs/audio-toolkit.md)
 - [用户提供的声音参考](docs/audio-references.md)
 - [天气音效工作台](tools/weather-audio/index.html)：合成雨风雷、导入裁剪音频、导出 WAV。
